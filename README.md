@@ -29,6 +29,8 @@ Elle a été créée comme projet d'apprentissage pour maîtriser Angular et l'i
 
 ## 🎥 Démo
 
+[Watch the demo video](https://github.com/belhadj-yahya/ngStor-angular-stor/blob/40279d1c62ec118868b8ce5e33404e38ea3c715a/0820.mp4)
+
 
 
 ---
