@@ -27,10 +27,10 @@ Elle a été créée comme projet d'apprentissage pour maîtriser Angular et l'i
 * `config/` → Fichier de connexion à la base de données
 * `angular_php.sql` → Exemple de base de données
 
-## 🎥 Démo
-
-[Watch the demo video](https://github.com/belhadj-yahya/ngStor-angular-stor/blob/40279d1c62ec118868b8ce5e33404e38ea3c715a/0820.mp4)
-
+## 📸 Screenshots
+![Cart](https://github.com/belhadj-yahya/ngStor-angular-stor/blob/44eb890e580e51b7c226f829a04906d608cb6be4/Screenshot%202025-08-20%20144228.png)
+![page du compte utilisateur](https://github.com/belhadj-yahya/ngStor-angular-stor/blob/44eb890e580e51b7c226f829a04906d608cb6be4/Screenshot%202025-08-20%20144246.png)
+![page de contrôle d'administration pour les utilisateurs](https://github.com/belhadj-yahya/ngStor-angular-stor/blob/44eb890e580e51b7c226f829a04906d608cb6be4/Screenshot%202025-08-20%20144326.png)
 
 
 ---
