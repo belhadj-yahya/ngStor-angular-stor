@@ -1,0 +1,101 @@
+
+:host {
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #3a3a3a; 
+}
+
+
+.login-card {
+  background: #ffe5c6; 
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(255, 150, 75, 0.2);
+  padding: 2rem 2.5rem;
+  width: 100%;
+  max-width: 400px;
+  transition: box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+  box-shadow: 0 8px 20px rgba(255, 150, 75, 0.35);
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.login-card label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #6f4a2d;
+  margin-bottom: 0.3rem;
+}
+
+.login-card input[type="email"],
+.login-card input[type="password"] {
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #d9b38c;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-card input[type="email"]:focus,
+.login-card input[type="password"]:focus {
+  border-color: #ff8c42;
+  box-shadow: 0 0 5px rgba(255, 140, 66, 0.5);
+}
+
+.login-card div p {
+  margin: 0.2rem 0 0 0;
+  font-size: 0.85rem;
+  color: #d9534f; 
+}
+
+.login-card input[type="submit"] {
+  background-color: #ff8c42;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  padding: 0.65rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 7px rgba(255, 140, 66, 0.4);
+  transition: background-color 0.25s ease, transform 0.15s ease;
+}
+form div{
+    display: flex;
+    flex-direction: column;
+}
+
+.login-card input[type="submit"]:hover {
+  background-color: #ff9e56;
+  transform: scale(1.05);
+}
+
+.login-card input[type="submit"]:active {
+  transform: scale(0.95);
+}
+.go_to_sign_up{
+  text-align: center;
+}
+.go_to_sign_up span{
+  cursor: pointer;
+  font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 1.5rem 2rem;
+  }
+
+  .login-card input[type="submit"] {
+    padding: 0.55rem 0.8rem;
+  }
+}

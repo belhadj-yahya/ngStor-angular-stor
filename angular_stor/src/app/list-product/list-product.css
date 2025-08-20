@@ -1,0 +1,98 @@
+/* Container styling */
+:host {
+  display: block;
+  max-width: 800px;
+  margin: 1.5rem auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #3a3a3a;
+}
+
+/* Card container */
+.card {
+  background: #ffe5c6; /* soft warm cream */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(255, 150, 75, 0.15);
+  margin-bottom: 1.4rem;
+  padding: 1.2rem 1.6rem;
+  transition: box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.card:hover {
+  box-shadow: 0 8px 20px rgba(255, 150, 75, 0.3);
+}
+
+/* Card body layout */
+.card_body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+/* Upper item - status */
+.uper_item p {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #f07e38; /* warm orange */
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+/* Middle item - product name */
+.middel_item p {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #6f4a2d; /* dark coffee brown */
+  margin: 0;
+}
+
+/* Lower item - owner and price */
+.lower_item p {
+  margin: 0.15rem 0;
+  font-size: 1rem;
+  color: #705b43;
+}
+
+/* Button container */
+.lower_item div.button {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 0.6rem;
+}
+
+/* Buttons styling */
+.lower_item button {
+  background-color: #ff8c42; /* pumpkin orange */
+  border: none;
+  border-radius: 6px;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 7px rgba(255, 140, 66, 0.4);
+  transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+.lower_item button:hover {
+  background-color: #ff9e56;
+  transform: scale(1.05);
+}
+
+.lower_item button:active {
+  transform: scale(0.95);
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .card {
+    padding: 1rem;
+  }
+
+  .middel_item p {
+    font-size: 1.1rem;
+  }
+
+  .lower_item button {
+    padding: 0.45rem 0.8rem;
+  }
+}

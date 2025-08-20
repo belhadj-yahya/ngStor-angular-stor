@@ -1,0 +1,43 @@
+
+
+<main>
+  <section>
+    <div class="card">
+      <div class="card_body">
+        <label>Orders</label>
+        <div class="cards">
+          <table>
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Order owner</th>
+                <th>Owner email</th>
+                <th>Blocked</th>
+                <th>Order status</th>
+                <th>action</th>
+              </tr>
+            </thead>
+            <tbody id="users_table">
+                <tr *ngFor="let order of orders();let i = index">
+                    <td>{{ order.order_id}}</td>
+                    <td>{{ order.name }}</td>
+                    <td>{{ order.user_email }}</td>
+                    <td>{{ order.blooked }}</td>
+                    <td>{{ order.order_status }}</td>
+                    <td>
+                        <form [formGroup]="change_stats_form" (change)="change_status(i,order.order_id)"  method="post">
+                            <select formControlName="status" id="">
+                                <option value="pending">pending</option>
+                                <option value="done">done</option>
+                                <option value="canceled">canceled</option>
+                            </select>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

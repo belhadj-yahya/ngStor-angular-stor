@@ -1,0 +1,158 @@
+/* Container */
+.no_item{
+  display: flex;
+  justify-content: center;
+  padding-inline: 20px;
+}
+.not_card{
+  margin-top: 50PX;
+  background: #ffe5c6; 
+  flex-grow: 1;
+}
+.cart-container {
+  max-width: 800px;
+  margin: 1.5rem auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #3a3a3a;
+}
+
+/* Card (same as your product list) */
+.card {
+  background: #ffe5c6; 
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(255, 150, 75, 0.15);
+  margin-bottom: 1.4rem;
+  padding: 1.2rem 1.6rem;
+  transition: box-shadow 0.3s ease; 
+}
+
+.card:hover {
+  box-shadow: 0 8px 20px rgba(255, 150, 75, 0.3);
+}
+
+/* Layout */
+.card_body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+/* Product name */
+.middel_item p,.no_items {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #6f4a2d; /* dark coffee brown */
+  margin: 0;
+}
+
+/* Product details */
+.lower_item p {
+  margin: 0.15rem 0;
+  font-size: 1rem;
+  color: #705b43;
+}
+
+/* Button row */
+.lower_item div.button {
+  margin-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Buttons */
+.lower_item button,button {
+  background-color: #ff8c42; /* pumpkin orange */
+  border: none;
+  border-radius: 6px;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 7px rgba(255, 140, 66, 0.4);
+  transition: background-color 0.25s ease, transform 0.15s ease;
+}
+.buy{
+  width: 115px;
+}
+.you_buy{
+  max-width: 115px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 7px rgba(255, 140, 66, 0.4);
+  transition: background-color 0.25s ease, transform 0.15s ease;
+  background-color: #ffcfb0;
+}
+
+
+.lower_item button:hover {
+  background-color: #ff9e56;
+  transform: scale(1.05);
+}
+
+.lower_item button:active {
+  transform: scale(0.95);
+}
+
+/* Quantity display */
+.lower_item p:nth-child(2) {
+  font-weight: bold;
+}
+.final_text{
+  max-width: 131px;
+  font-size: 0.9rem;
+}
+
+/* Total */
+.cart-total {
+  width: fit-content;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #6f4a2d;
+  /* max-width: 164px; */
+  width: 100%;
+}
+
+.cart-total span {
+  color: #ff8c42;
+}
+
+/* Debug button */
+.debug-btn {
+  margin-top: 20px;
+  background: #6f4a2d;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.debug-btn:hover {
+  background: #5b3c23;
+}
+
+.just_an_error{
+   font-size: 0.85rem;
+  color: red;
+  margin: 0;
+}
+/* Mobile */
+@media (max-width: 480px) {
+  .card {
+    padding: 1rem;
+  }
+
+  .middel_item p {
+    font-size: 1.1rem;
+  }
+
+  .lower_item button {
+    padding: 0.45rem 0.8rem;
+  }
+}

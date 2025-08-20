@@ -1,0 +1,62 @@
+<div class="login-card">
+  <h2>Create Account</h2>
+
+  <form [formGroup]="sign_up_form" (ngSubmit)="on_submit()">
+
+    <!-- First Name -->
+    <div>
+      <label for="first_name">First Name</label>
+      <input type="text" id="first_name" formControlName="first_name" />
+      <p *ngIf="sign_up_form.get('first_name')?.invalid && sign_up_form.get('first_name')?.touched">
+        First name is required (max 12 characters).
+      </p>
+    </div>
+
+    <!-- Last Name -->
+    <div>
+      <label for="last_name">Last Name</label>
+      <input type="text" id="last_name" formControlName="last_name" />
+      <p *ngIf="sign_up_form.get('last_name')?.invalid && sign_up_form.get('last_name')?.touched">
+        Last name is required (max 12 characters).
+      </p>
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" formControlName="email" />
+      <p *ngIf="sign_up_form.get('email')?.hasError('required') && sign_up_form.get('email')?.touched">
+        Email is required.
+      </p>
+      <p *ngIf="sign_up_form.get('email')?.hasError('email') && sign_up_form.get('email')?.touched">
+        Please enter a valid email.
+      </p>
+    </div>
+
+    <!-- Password -->
+    <div>
+      <label for="password">Password</label>
+      <input type="password" id="password" formControlName="password" />
+      <p *ngIf="sign_up_form.get('password')?.invalid && sign_up_form.get('password')?.touched">
+        Password must be between 5–50 characters.
+      </p>
+    </div>
+
+    <!-- Confirm Password -->
+    <div>
+      <label for="confirm_password">Confirm Password</label>
+      <input type="password" id="confirm_password" formControlName="confirm_password" />
+      <p *ngIf="sign_up_form.get('confirm_password')?.invalid && sign_up_form.get('confirm_password')?.touched">
+        Please confirm your password.
+      </p>
+      <p *ngIf="sign_up_form.errors?.['passwordMismatch'] && sign_up_form.get('confirm_password')?.touched">
+        Passwords do not match.
+      </p>
+    </div>
+
+    <!-- Submit Button -->
+    <input type="submit" value="Sign Up" [disabled]="sign_up_form.invalid" />
+    <p class="error" *ngIf="error() != null">{{error()}}</p>
+    <p class="go_to_log_in">have an account already? <span routerLink="/login">log in</span></p>
+  </form>
+</div>

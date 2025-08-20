@@ -1,0 +1,30 @@
+<div *ngIf="processedListProduct()!.length > 0">
+  <div *ngFor="let item of processedListProduct()[1]; let i = index" class="card">
+    <div class="card_body">
+        <div class="uper_item">
+            <p>{{ item.out_of_order == "No" ? "avilibel for order" : "out of order"}}</p>
+        </div>
+        <div class="middel_item">
+            <p>{{ item.product_name }}</p>
+        </div>
+        <div class="lower_item">
+            <p>Put by {{ item.owner }}</p>
+            <p>{{ item.product_price}}$</p>
+            <div *ngIf=" item.out_of_order === 'No'" [ngClass]="{'button' : item.out_of_order == 'No'}" >
+                <button *ngIf="getQuantity(item.product_id) < 1" (click)="add_item_to_cart({
+                    product_id: item.product_id,
+                    product_name: item.product_name,
+                    product_price: item.product_price,
+                    product_quantity: item.product_quantity,
+                    units_ticken: 1
+                })">add to cart</button>
+                <button *ngIf="getQuantity(item.product_id) > 0" (click)="remove_item(item.product_id)">
+                    Remove from cart
+                </button>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+</div>
+

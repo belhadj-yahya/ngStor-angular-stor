@@ -1,0 +1,53 @@
+
+<main>
+  <section>
+    <div class="card">
+      <div class="card_body">
+        <div class="input_div">
+          <label>Done Orders : </label>
+          <span id="done_orders">{{data().done_orders.done_count}}</span>
+        </div>
+        <div class="input_div">
+          <label>Pending Orders : </label>
+          <span id="pending_orders">{{data().pending_orders.pending_count}}</span>
+        </div>
+        <div class="input_div">
+          <label>Total Money : </label>
+          <span id="total_money">{{data().total_money.money}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card_body">
+        <label>Clients</label>
+        <div class="cards">
+          <table>
+            <thead>
+              <tr>
+                <th>Full name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Blocked</th>
+                <th>Products</th>
+                <th>Block client</th>
+              </tr>
+            </thead>
+            <tbody id="users_table">
+                <tr *ngFor="let user of data().users;let i = index">
+                    <td>{{ user.user_f_name + " " + user.user_l_name }}</td>
+                    <td>{{ user.user_email }}</td>
+                    <td>{{ user.role }}</td>
+                    <td>{{ user.blooked }}</td>
+                    <td>{{ user.amount_of_product }}</td>
+                    <td>
+                        <button [ngClass]="{'block':user.blooked == 'No','anblock':user.blooked == 'Yes'}" (click)="change_block(i,user.user_id)">{{user.blooked == "Yes" ? 'anblock' : 'block'}}</button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

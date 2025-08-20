@@ -1,0 +1,10 @@
+<header *ngIf="users.user()?.user_role == 'client' || users.user()?.user_role == null">
+    <p>NgStor</p>
+
+    <nav>
+        <p routerLink="/">Products</p>
+        <p routerLink="/cart"><i class="fas fa-shopping-cart"></i> {{cart.cart_items_count()}}</p>
+    </nav>
+    <p [routerLink]="users.user() == null ? '/login' : '/account'">{{users.user() == null ? "log in" : "Account"}}</p>
+</header>
+<router-outlet></router-outlet>

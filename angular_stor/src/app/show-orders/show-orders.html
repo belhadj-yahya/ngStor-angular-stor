@@ -1,0 +1,14 @@
+<div *ngFor="let order of orders" class="order-card">
+  <div class="order-header">
+    <h3 class="order-title">Order #{{ order.order_id }} <span>{{ order.order_status}}</span></h3>
+    <span class="order-total">Total: {{ order.order_total }} $</span>
+  </div>
+
+  <div class="order-items">
+    <div *ngFor="let item of order.items" class="order-item">
+      <span class="item-name">{{ item.product_name }}</span>
+      <span class="item-amount">{{ item.amount }} × {{ item.product_price }} $</span>
+      <span class="item-subtotal">{{ item.item_subtotal }} $</span>
+    </div>
+  </div>
+</div>

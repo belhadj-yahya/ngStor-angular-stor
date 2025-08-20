@@ -1,0 +1,25 @@
+<div class="login-card">
+  <form [formGroup]="login_form" (ngSubmit)="submit()" method="post">
+    <div>
+      <label>Email:</label>
+      <input type="email" formControlName="email">
+      <div *ngIf="login_form.get('email') as emailControl">
+        <p *ngIf="emailControl.touched && emailControl.errors?.['required']">Email is required</p>
+        <p *ngIf="emailControl.touched && emailControl.errors?.['email']">Enter a valid email</p>
+      </div>
+    </div>
+    <div>
+      <label>Password:</label>
+      <input type="password" formControlName="password">
+      <div *ngIf="login_form.get('password') as passwordControl">
+        <p *ngIf="passwordControl.touched && passwordControl.errors?.['minLength']">Password is too short</p>
+        <p *ngIf="passwordControl.touched && passwordControl.errors?.['required']">Password is required</p>
+      </div>
+    </div>
+    <div>
+      <input type="submit" value="Log In">
+      <p *ngIf="show_error() != ''">{{show_error()}}</p>
+      <p class="go_to_sign_up">don't have an Account? <span routerLink="/sign up">sign up</span></p>
+    </div>
+  </form>
+</div>

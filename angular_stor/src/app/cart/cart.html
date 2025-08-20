@@ -1,0 +1,34 @@
+<div class="cart-container" *ngIf="cart.cart_items().length >= 1">
+  <div class="card" *ngFor="let product of cart.cart_items(); let i = index">
+    <div class="card_body">
+      <div class="middel_item">
+        <p>{{ product.product_name }}</p>
+      </div>
+      <div class="lower_item">
+        <p>Price: {{ product.product_price }}$</p>
+        <p>Stock: {{ product.product_quantity }}</p>
+        <div class="button">
+          <button (click)="change_amount(i,+1,product.product_price)">+</button>
+          <p>{{ product.units_ticken }}</p>
+          <button (click)="change_amount(i,-1,product.product_price)">-</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-total">
+    <p>Total: <span>{{ total_amount().toFixed(2) }}$</span></p>
+    <button [ngClass]="{'buy':!buy_one_time,'you_buy':buy_one_time}"   (click)="buy_products()">Buy</button>
+    <p *ngIf="final_message == true" class="final_text">order was placed</p>
+    <p class="just_an_error" *ngIf="block_message() != false">the admin has blocked you so you cant make any purchases</p>
+  
+  </div>
+</div>
+<div *ngIf="cart.cart_items().length < 1" class="no_item">
+  <div  class="card not_card">
+    <p class="no_items">No Items yet</p>
+  </div>
+</div>
+
+
+

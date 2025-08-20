@@ -1,0 +1,104 @@
+<section>
+    <div class="card">
+  <form class="card_body" [formGroup]="addForm" (ngSubmit)="add_product()" method="post">
+    
+    <div class="input_div">
+      <label>Product Name</label>
+      <input type="text" formControlName="product_name" placeholder="Product name">
+      <div *ngIf="addForm.get('product_name') as name">
+        <p *ngIf="name.touched && name.errors?.['required']">Product name is required</p>
+        <p *ngIf="name.touched && name.errors?.['maxlength']">Product name is too long</p>
+      </div>
+    </div>
+
+    <div class="input_div">
+      <label>Product Price</label>
+      <input type="text" formControlName="product_price" placeholder="Product price">
+      <div *ngIf="addForm.get('product_price') as price">
+        <p *ngIf="price.touched && price.errors?.['required']">Product price is required</p>
+        <p *ngIf="price.touched && price.errors?.['pattern']">Enter a valid number for the price</p>
+        <p *ngIf="price.touched && price.errors?.['max']">Product price can't be over 1000000</p>
+        <p *ngIf="price.touched && price.errors?.['min']">Minimum price is 1</p>
+      </div>
+    </div>
+
+    <div class="input_div">
+      <label>Product Available Units</label>
+      <input type="text" formControlName="product_units" placeholder="Available units">
+      <div *ngIf="addForm.get('product_units') as units">
+        <p *ngIf="units.touched && units.errors?.['required']">Product units are required</p>
+        <p *ngIf="units.touched && units.errors?.['pattern']">Enter a valid number for units</p>
+        <p *ngIf="units.touched && units.errors?.['max']">Max amount of units is 500</p>
+        <p *ngIf="units.touched && units.errors?.['min']">Minimum amount of units is 1</p>
+      </div>
+    </div>
+    <div>
+      <input type="submit" class="orange-btn" value="Add Product">
+      <p *ngIf="add_block_message == true">the admin blocked you so you can't add any products at the moment</p>
+      <p style="color:rgb(35, 165, 35)" *ngIf="added_message == true">item added to your products</p>
+    </div>
+
+  </form>
+</div>
+
+<div class="cards" *ngIf="products().length > 0">
+  <div *ngFor="let product of products(); let i = index" class="card">
+    <div class="card_body">
+
+      <div class="middel_item">
+        <p>{{ product.product_name }}</p>
+      </div>
+      <div class="lower_item">
+        <p>Price: {{ product.product_price }}</p>
+        <p>Quantity: {{ product.product_quantity }}</p>
+        <p>Out of Order: {{ product.out_of_order }}</p>
+        <div class="button">
+          <button type="button" (click)="display_edited_item(i, product.product_id)">Edit</button>
+        </div>
+      </div>
+
+      <div *ngIf="id_to_change() == product.product_id" class="edit-section">
+        <form class="card_body" [formGroup]="edit_form" (ngSubmit)="edit_item(i,product.product_id)" method="post">
+          <div class="input_div">
+            <label>Product Name</label>
+            <input type="text" formControlName="new_name" placeholder="Product name">
+            <div *ngIf="edit_form.get('new_name') as name">
+              <p *ngIf="name.touched && name.errors?.['required']">Product name is required</p>
+              <p *ngIf="name.touched && name.errors?.['maxlength']">Product name is too long</p>
+            </div>
+          </div>
+
+          <div class="input_div">
+            <label>Product Price</label>
+            <input type="text" formControlName="new_product_price" placeholder="Product price">
+            <div *ngIf="edit_form.get('new_product_price') as price">
+              <p *ngIf="price.touched && price.errors?.['required']">Product price is required</p>
+              <p *ngIf="price.touched && price.errors?.['pattern']">Enter a valid number for the price</p>
+              <p *ngIf="price.touched && price.errors?.['max']">Product price can't be over 1000000</p>
+              <p *ngIf="price.touched && price.errors?.['min']">Minimum price is 1</p>
+            </div>
+          </div>
+
+          <div class="input_div">
+            <label>Product Available Units</label>
+            <input type="text" formControlName="new_product_units" placeholder="Available units">
+            <div *ngIf="edit_form.get('new_product_units') as units">
+              <p *ngIf="units.touched && units.errors?.['required']">Product units are required</p>
+              <p *ngIf="units.touched && units.errors?.['pattern']">Enter a valid number for units</p>
+              <p *ngIf="units.touched && units.errors?.['max']">Max amount of units is 500</p>
+              <p *ngIf="units.touched && units.errors?.['min']">Minimum amount of units is 1</p>
+            </div>
+          </div>
+
+          <div>
+            <input type="submit" class="orange-btn" value="Save">
+            <p *ngIf="edit_block_message == true">the admin did block you so you can't make any changes in your products at the moment</p>
+          </div>
+
+        </form>
+        <button class="orange-btn btns" (click)="this.id_to_change.set(null)">Cancele</button>
+      </div>
+    </div>
+  </div>
+</div>
+</section>

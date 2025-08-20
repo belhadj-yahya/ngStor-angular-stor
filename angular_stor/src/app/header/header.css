@@ -1,0 +1,65 @@
+/* Header styling */
+header {
+  background: #ffe5c6;
+  box-shadow: 0 4px 10px rgba(255, 150, 75, 0.15);
+  padding: 0.8rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header > p:first-of-type {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #6f4a2d; 
+  margin: 0;
+}
+
+header nav {
+  display: flex;
+  gap: 1.2rem;
+}
+
+header nav p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #f07e38;
+  cursor: pointer;
+  transition: color 0.25s ease, transform 0.15s ease;
+}
+
+header nav p:hover {
+  color: #ff8c42; 
+  transform: scale(1.05);
+}
+
+
+header > p:last-of-type {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #705b43;
+  cursor: pointer;
+  transition: color 0.25s ease, transform 0.15s ease;
+}
+
+header > p:last-of-type:hover {
+  color: #ff8c42;
+  transform: scale(1.05);
+}
+
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  header nav {
+    gap: 0.8rem;
+  }
+}
